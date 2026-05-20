@@ -563,17 +563,39 @@ export default function StudyTimerStopwatchApp() {
     <div className={`min-h-screen ${appBg} ${textMain}`}>
       <div className="mx-auto max-w-7xl px-6 py-10">
         <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <Badge className={`mb-3 rounded-full px-3 py-1 text-sm ${isDark ? "bg-neutral-600 text-stone-100" : "bg-stone-200 text-neutral-700"}`}>
-              Study Dashboard
-            </Badge>
-            <h1 className="text-4xl font-semibold tracking-tight md:text-5xl text-inherit">
-  Efficio : Study timer + planner
-            </h1>
-            <p className={`mt-3 max-w-2xl text-sm md:text-base ${textSoft}`}>
-              Track subjects, projects, goals, study sessions, weekly hours, and calendar history.
-            </p>
-          </div>
+         <div className="flex items-start gap-4">
+  <div className="h-20 w-20 rounded-3xl bg-black flex items-center justify-center shadow-lg">
+    <span className="text-5xl font-black bg-gradient-to-b from-white to-purple-500 bg-clip-text text-transparent">
+      E
+    </span>
+  </div>
+
+  <div>
+    <div className="flex items-center gap-3">
+      <Badge
+        className={`mb-3 rounded-full px-3 py-1 text-sm ${
+          isDark
+            ? "bg-neutral-600 text-stone-100"
+            : "bg-stone-200 text-neutral-700"
+        }`}
+      >
+        Study Dashboard
+      </Badge>
+
+      <span className="text-xs tracking-wide opacity-70">
+        • MADE BY RISH ANIL MATHEW
+      </span>
+    </div>
+
+    <h1 className="text-4xl font-semibold tracking-tight md:text-5xl text-inherit">
+      Efficio : Study timer + planner
+    </h1>
+
+    <p className={`mt-3 max-w-2xl text-sm md:text-base ${textSoft}`}>
+      Track subjects, projects, goals, study sessions, weekly hours, and calendar history.
+    </p>
+  </div>
+</div> 
 
           <div className="flex items-center gap-3">
             <Button onClick={() => setTheme((prev) => (prev === "dark" ? "light" : "dark"))} className={`rounded-2xl px-5 py-5 ${pressable} ${primaryButton}`}>
