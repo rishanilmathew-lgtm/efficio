@@ -228,7 +228,7 @@ export default function StudyTimerStopwatchApp() {
 
   const [subjects, setSubjects] = useState<Subject[]>(starterSubjects);
   const [projects, setProjects] = useState<Project[]>([]);
-  const [selectedSubjectId, setSelectedSubjectId] = useState<string>(starterSubjects[0].id);
+ const [selectedSubjectId, setSelectedSubjectId] = useState<string>("");
   const [selectedProjectId, setSelectedProjectId] = useState<string>("none");
   const [savedSessions, setSavedSessions] = useState<SessionLog[]>([]);
 
@@ -242,8 +242,8 @@ export default function StudyTimerStopwatchApp() {
     const storedSubjects = safeRead<Subject[]>("study-subjects", starterSubjects);
     const validSubjects = storedSubjects.length > 0 ? storedSubjects : starterSubjects;
     setSubjects(validSubjects);
-    setSelectedSubjectId(validSubjects[0]?.id || "");
-    setNewProjectSubjectId(validSubjects[0]?.id || "");
+    setSelectedSubjectId(validSubjects[0]?.id || "LOCK IN");
+    setNewProjectSubjectId(validSubjects[0]?.id || "LOCK IN");
     setProjects(safeRead<Project[]>("study-projects", []));
     setSavedSessions(safeRead<SessionLog[]>("study-sessions-history", []));
   }, []);
