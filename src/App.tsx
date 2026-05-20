@@ -568,7 +568,7 @@ export default function StudyTimerStopwatchApp() {
               Study Dashboard
             </Badge>
             <h1 className="text-4xl font-semibold tracking-tight md:text-5xl text-inherit">
-              Study timer + planner
+  Efficio : Study timer + planner
             </h1>
             <p className={`mt-3 max-w-2xl text-sm md:text-base ${textSoft}`}>
               Track subjects, projects, goals, study sessions, weekly hours, and calendar history.
@@ -1185,6 +1185,9 @@ export default function StudyTimerStopwatchApp() {
           </TabsContent>
         </Tabs>
       </div>
+<footer className="text-center text-sm text-gray-400 mt-10 pb-4">
+  Contact us: efficioweb@outlook.com
+</footer>
     </div>
   );
 }
