@@ -130,11 +130,7 @@ const colorOptions: ColorOption[] = [
   },
 ];
 
-const starterSubjects: Subject[] = [
-  { id: "maths", name: "Maths", color: "blue", weeklyGoalHours: 6 },
-  { id: "physics", name: "Physics", color: "green", weeklyGoalHours: 5 },
-  { id: "english", name: "English", color: "purple", weeklyGoalHours: 4 },
-];
+const starterSubjects: Subject[] = [];
 
 function formatTime(totalSeconds: number) {
   const safeSeconds = Math.max(0, totalSeconds);
@@ -227,8 +223,8 @@ export default function StudyTimerStopwatchApp() {
   const [stopwatchRunning, setStopwatchRunning] = useState(false);
   const [laps, setLaps] = useState<number[]>([]);
 
-  const [sessionTitle, setSessionTitle] = useState("Maths revision");
-  const [sessionNotes, setSessionNotes] = useState("Focus on algebra and past paper questions.");
+  const [sessionTitle, setSessionTitle] = useState("");
+  const [sessionNotes, setSessionNotes] = useState("");
 
   const [subjects, setSubjects] = useState<Subject[]>(starterSubjects);
   const [projects, setProjects] = useState<Project[]>([]);
@@ -860,7 +856,16 @@ export default function StudyTimerStopwatchApp() {
                     <CardTitle className="text-xl text-inherit">This week by subject</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-3">
-                    {subjectStats.map((subject) => {
+                    {subjects.length === 0 && (
+  <button
+    onClick={() => setMainTab("subjects")}
+    className="w-full rounded-2xl border border-dashed p-6 text-sm text-neutral-500 transition hover:bg-neutral-100 dark:hover:bg-neutral-800"
+  >
+    + Add your first subject
+  </button>
+)}
+                    {subjects.length > 0 &&
+  subjectStats.map((subject) => {
                       const config = getColorConfig(subject.color);
                       return (
                         <div key={subject.id} className={`rounded-2xl border p-4 ${isDark ? config.darkCard : config.lightCard}`}>
