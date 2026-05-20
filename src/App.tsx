@@ -1,3 +1,5 @@
+'use client';
+
 import  { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -130,7 +132,14 @@ const colorOptions: ColorOption[] = [
   },
 ];
 
-const starterSubjects: Subject[] = [];
+const starterSubjects: Subject[] = [
+  {
+    id: "default-general-study-1",
+    name: "General Study",
+    color: "blue",
+    weeklyGoalHours: 5,
+  },
+];
 
 function formatTime(totalSeconds: number) {
   const safeSeconds = Math.max(0, totalSeconds);
@@ -746,7 +755,7 @@ export default function StudyTimerStopwatchApp() {
                       <div>
                         <label className={`mb-2 block text-sm ${textSoft}`}>Subject</label>
                         <Select
-                          value={selectedSubjectId || undefined}
+                          value={selectedSubjectId || ""}
                           onValueChange={(value) => {
                             setSelectedSubjectId(value);
                             setSelectedProjectId("none");
@@ -957,7 +966,7 @@ export default function StudyTimerStopwatchApp() {
                   </div>
                   <div>
                     <label className={`mb-2 block text-sm ${textSoft}`}>Subject</label>
-                    <Select value={newProjectSubjectId || undefined} onValueChange={setNewProjectSubjectId}>
+                    <Select value={newProjectSubjectId || ""} onValueChange={setNewProjectSubjectId}>
                       <SelectTrigger className={`rounded-2xl border ${border} ${panelBg} ${textMain}`}>
                         <SelectValue placeholder="Select subject" />
                       </SelectTrigger>
