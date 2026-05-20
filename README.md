@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -71,3 +72,7 @@ export default defineConfig([
   },
 ])
 ```
+=======
+# efficio
+Efficient and Minimalist study timer and stopwatch app
+>>>>>>> 4ee194ca1feb1baa550b2ee5788930250d373314
