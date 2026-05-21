@@ -551,9 +551,9 @@ if (!confirmed) return;
   const cardBg = isDark ? "bg-neutral-700" : "bg-stone-50";
   const panelBg = isDark ? "bg-neutral-900" : "bg-stone-100";
   const border = isDark ? "border-neutral-600" : "border-stone-300";
-  const textMain = isDark ? "text-stone-100" : "text-neutral-700";
-  const textSoft = isDark ? "text-stone-100" : "text-neutral-600";
-  const textMuted = isDark ? "text-stone-200" : "text-neutral-500";
+  const textMain = isDark ? "text-white" : "text-neutral-700";
+const textSoft = isDark ? "text-stone-200" : "text-neutral-600";
+const textMuted = isDark ? "text-stone-300" : "text-neutral-500";
   const placeholderTone = isDark ? "placeholder:text-stone-300" : "placeholder:text-neutral-400";
   const primaryButton = isDark
     ? "bg-stone-100 text-neutral-800 hover:bg-stone-200"
