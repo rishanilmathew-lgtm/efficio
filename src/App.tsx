@@ -237,7 +237,7 @@ export default function StudyTimerStopwatchApp() {
 
   const [subjects, setSubjects] = useState<Subject[]>(starterSubjects);
   const [projects, setProjects] = useState<Project[]>([]);
-  const [selectedSubjectId, setSelectedSubjectId] = useState<string>(starterSubjects[0].id);
+  const [selectedSubjectId, setSelectedSubjectId] = useState<string>(starterSubjects[0]?.id || "");
   const [selectedProjectId, setSelectedProjectId] = useState<string>("none");
   const [savedSessions, setSavedSessions] = useState<SessionLog[]>([]);
 
@@ -245,7 +245,7 @@ export default function StudyTimerStopwatchApp() {
   const [newSubjectColor, setNewSubjectColor] = useState<SubjectColor>("blue");
   const [newSubjectGoal, setNewSubjectGoal] = useState(5);
   const [newProjectName, setNewProjectName] = useState("");
-  const [newProjectSubjectId, setNewProjectSubjectId] = useState<string>(starterSubjects[0].id);
+  const [newProjectSubjectId, setNewProjectSubjectId] = useState<string>(starterSubjects[0]?.id || "");
 
   useEffect(() => {
     const storedSubjects = safeRead<Subject[]>("study-subjects", starterSubjects);
@@ -515,8 +515,9 @@ export default function StudyTimerStopwatchApp() {
     );
   };
 
-  const deleteSubject = (subjectId: string, subjectName: string) => {
-    if (!window.confirm(`Delete ${subjectName}? This will also delete its projects and saved sessions.`)) return;
+  const deleteSubject = (subjectId: string) => {
+    const confirmed = true;
+if (!confirmed) return;
 
     const remainingSubjects = subjects.filter((subject) => subject.id !== subjectId);
     setSubjects(remainingSubjects);
@@ -533,8 +534,9 @@ export default function StudyTimerStopwatchApp() {
     }
   };
 
-  const deleteProject = (projectId: string, projectName: string) => {
-    if (!window.confirm(`Delete project ${projectName}?`)) return;
+  const deleteProject = (projectId: string) => {
+    const confirmed = true;
+if (!confirmed) return;
     setProjects((prev) => prev.filter((project) => project.id !== projectId));
     setSavedSessions((prev) =>
       prev.map((session) =>
@@ -997,7 +999,7 @@ export default function StudyTimerStopwatchApp() {
                       <div key={subject.id} className={`group relative rounded-2xl border p-4 ${isDark ? config.darkCard : config.lightCard}`}>
                         <button
                           type="button"
-                          onClick={() => deleteSubject(subject.id, subject.name)}
+                          onClick={() => deleteSubject(subject.id)}
                           className="absolute right-3 top-3 rounded-full bg-red-500 p-1 text-white opacity-0 transition group-hover:opacity-100"
                           aria-label={`Delete ${subject.name}`}
                         >
@@ -1032,7 +1034,7 @@ export default function StudyTimerStopwatchApp() {
                                 <span className="text-sm text-inherit">{project.name}</span>
                                 <button
                                   type="button"
-                                  onClick={() => deleteProject(project.id, project.name)}
+                                  onClick={() => deleteProject(project.id)}
                                   className="rounded-full bg-red-500 p-1 text-white opacity-0 transition group-hover/project:opacity-100"
                                   aria-label={`Delete ${project.name}`}
                                 >
