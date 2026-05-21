@@ -217,7 +217,7 @@ function makeId(prefix: string, value: string) {
 export default function StudyTimerStopwatchApp() {
   const [mainTab, setMainTab] = useState("study");
   const [timerTab, setTimerTab] = useState("timer");
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [theme, setTheme] = useState<"dark" | "light">("light");
 
   const [studyMinutes, setStudyMinutes] = useState(25);
   const [breakMinutes, setBreakMinutes] = useState(5);
